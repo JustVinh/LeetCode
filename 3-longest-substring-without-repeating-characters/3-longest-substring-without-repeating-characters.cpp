@@ -9,15 +9,22 @@ public:
         int longest  =1;
         
         for(int i=0; i< s.length(); i++){
+            //if not duplicated
             if(mark[s[i]] == -1){
                 res++;
+                //note the first appear position
                 mark[s[i]] = i;
             }
+            //if found duplicated
             else{
+                //update the longest
                 longest = max(longest, res);
+                
+                //find the length of reuseable substring ex. "abcvnbx" then we can use "cvnb"                 when b is duplicated
                 res = i - mark[s[i]];
+                //reset mark of character that not has been used yet in new substring
                 for(int j =0; j <= mark[s[i]]; j++){
-                	if(mark[s[j]] < mark[s[i]]){
+                	if(mark[s[j]] < mark[s[i]]){ // remove this line = wrong
                 		mark[s[j]] = -1;
                 	}
                 }
