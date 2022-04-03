@@ -1,2 +1,2 @@
 # LeetCode
-The journey begun in 2/4/2022
+The journey has begun since 2/4/2022
