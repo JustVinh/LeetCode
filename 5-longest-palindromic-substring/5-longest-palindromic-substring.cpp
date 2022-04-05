@@ -1,20 +1,22 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-                // true if from i to j is palindromic 
-        bool table[1001][1001];
+        int n = s.length();
+        // true if from i to j is palindromic 
+        bool table[n+1][n+1];
+        //Never forget to memset
         memset(table, 0, sizeof(table));
         int longest = 1;
         //track the start postion of longest subs string
         int start = 0;
         
         //length = 1
-        for(int i =0; i< s.length(); i++){
+        for(int i =0; i< n; i++){
             table[i][i] = true;
         }
         
         //length = 2
-        for(int i =0; i < s.length() -1; i++){
+        for(int i =0; i <n -1; i++){
             if(s[i] == s[i+1]) {
                 table[i][i+1] = true;
                 longest = 2;
@@ -22,8 +24,7 @@ public:
                 start = i;
             }
         }
-        
-        int n = s.length();
+    
         
         //length >= 3
         for(int k =3; k <= n; k++){
