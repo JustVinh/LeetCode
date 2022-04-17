@@ -7,6 +7,7 @@ public:
         int finish = n-1;
         int maxarea =0;
         
+        //https://www.geeksforgeeks.org/container-with-most-water/
         for(int i = 0; i<= n-2; i++){
             int area = (finish - start)*(min(height[start], height[finish]));
             maxarea = max(maxarea, area);
