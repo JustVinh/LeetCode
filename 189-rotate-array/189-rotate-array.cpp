@@ -1,21 +1,23 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-       queue<int> q;
         int n = nums.size();
-        for(int i =n-1; i>=0; i--){
-            q.push(nums[i]);
+        
+        vector<int> res(n) ;
+        
+        for(int i =0; i<n; i++){
+            if(i-k<0){
+                int right_index = i-k+n;
+                while(right_index<0){
+                    right_index += n;
+                }
+                res[i] =  nums[right_index];
+            }
+            else res[i] =  nums[i - k];
         }
         
-        for(int i =0; i<k; i++){
-            int val = q.front();
-            q.pop();
-            q.push(val);
-        }
-        
-        for(int i =n-1; i>=0; i--){
-            nums[i] = q.front();
-            q.pop();
+        for(int i =0; i<n; i++){
+            nums[i] = res[i];
         }
     }
 };
