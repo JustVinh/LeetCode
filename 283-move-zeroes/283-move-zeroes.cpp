@@ -1,7 +1,6 @@
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        //snowball technique
         
         int n = nums.size();
         
