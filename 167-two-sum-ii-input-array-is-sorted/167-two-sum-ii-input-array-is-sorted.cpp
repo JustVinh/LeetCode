@@ -5,8 +5,7 @@ public:
         int l =0;
         int r = n- 1;
         // int found = 0;
-        
-        for(int i =0; i<n; i++){
+        while(l<r){
             if(numbers[l] + numbers[r] < target){
                 l++;
             }
@@ -14,10 +13,11 @@ public:
                 r--;
             }
             else{
-                break;
+                return {l+1, r+1};
             }
         }
         
-        return vector<int> {l+1,r+1};
+        
+        return {};
     }
 };
